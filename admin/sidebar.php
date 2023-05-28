@@ -67,6 +67,14 @@ $x = $sql->fetch(PDO::FETCH_ASSOC);
             </p>
           </a>
         </li>
+        <li class="nav-item  ">
+          <a href="galery.php" class="nav-link">
+          <i class="fa fa-book" aria-hidden="true"></i>
+            <p>
+                Galery Settings
+            </p>
+          </a>
+        </li>
         <li class="nav-item">
           <a href="portfolio.php" class="nav-link">
           <i class="fa fa-desktop" aria-hidden="true"></i>

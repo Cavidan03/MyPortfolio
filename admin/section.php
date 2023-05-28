@@ -63,13 +63,13 @@ $l = $sql->fetch(PDO::FETCH_ASSOC);
 
                   <div class="form-group">
                     <div class="custom-control custom-switch custom-switch-off-danger custom-switch-on-success">
-                      <input type="checkbox" class="custom-control-input" id="customSwitch4" name="services"
+                      <input type="checkbox" class="custom-control-input" id="customSwitch4" name="galery"
                       <?php
-                      if($l['services_section']){
+                      if($l['galery_section']){
                         echo "checked";
                       }
                       ?> >
-                      <label class="custom-control-label" for="customSwitch4">Services Section</label>
+                      <label class="custom-control-label" for="customSwitch4">Galery Section</label>
                     </div>
                   </div>
 

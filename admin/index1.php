@@ -2,7 +2,7 @@
 session_start();  
 include 'connect.php';
 
-$sql = $db->prepare("select *from admin,home,contact,section_control,about,settings");
+$sql = $db->prepare("select *from admin,contact,home,settings");
 $sql->execute();
 $l = $sql->fetch(PDO::FETCH_ASSOC);
 

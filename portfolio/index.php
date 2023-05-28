@@ -38,7 +38,7 @@ $x = $sql->fetch(PDO::FETCH_ASSOC);
   <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
 
   <!-- Template Main CSS File -->
-  <link rel="stylesheet" href="assets/css/style.css" media="screen">
+  <link rel="stylesheet" href="assets/css/style1.css" media="screen">
 
   <!-- =======================================================
   * Template Name: Personal - v4.10.0
@@ -56,12 +56,12 @@ $x = $sql->fetch(PDO::FETCH_ASSOC);
 
 
       <h1><a href="index.php">
-          <?=$x['home_name'] ?>
+          <?= $x['home_name'] ?>
         </a></h1>
       <!-- Uncomment below if you prefer to use an image logo -->
       <!-- <a href="index.html" class="mr-auto"><img src="assets/img/logo.png" alt="" class="img-fluid"></a> -->
       <h2>I'm a
-        <?=$x['home_title']?>
+        <?= $x['home_title'] ?>
       </h2>
 
       <nav id="navbar" class="navbar">
@@ -81,8 +81,8 @@ $x = $sql->fetch(PDO::FETCH_ASSOC);
             <li><a class="nav-link" href="#resume">Resume</a></li>
           <?php } ?>
           <?php
-          if ($x['services_section']) { ?>
-            <li><a class="nav-link" href="#services">Services</a></li>
+          if ($x['galery_section']) { ?>
+            <li><a class="nav-link" href="#galery">Galery</a></li>
           <?php } ?>
           <?php
           if ($x['portfolio_section']) { ?>
@@ -288,72 +288,53 @@ $x = $sql->fetch(PDO::FETCH_ASSOC);
     </div>
   </section><!-- End Resume Section -->
 
-  <!-- ======= Services Section ======= -->
-  <section id="services" class="services">
+  <section id="galery" class="galery">
     <div class="container">
+      <div class="row">
+        <div class="col-lg-12 d-flex justify-content-center">
+        </div>
+      </div>
 
       <div class="section-title">
-        <h2>Services</h2>
-        <p>My Services</p>
+        <h2>Galery</h2>
+        <p>My Photos</p>
       </div>
+      <div class="row galery-container">
 
-      <div class="row">
-        <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
-          <div class="icon-box">
-            <div class="icon"><i class="bx bxl-dribbble"></i></div>
-            <h4><a href="">Lorem Ipsum</a></h4>
-            <p>Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi</p>
+        <?php
+
+$galery=$db->prepare("select * from galery");
+$galery->execute([]);
+while($g=$galery->fetch(PDO::FETCH_ASSOC)){
+
+        ?>
+        <div class="col-lg-4 col-md-6 galery-item filter-app">
+          <div class="galery-wrap">
+            <img src="../admin/<?=$g['galery_picture']?>" class="img-fluid" alt="">
+            <div class="galery-info">
+              <div class="galery-links">
+                <a href="../admin/<?=$g['galery_picture']?>" data-gallery="portfolioGallery" class="portfolio-lightbox"><i class="bx bx-plus"></i></a>
+              </div>
+            </div>
           </div>
         </div>
+        <?php } ?>
 
-        <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-md-0">
-          <div class="icon-box">
-            <div class="icon"><i class="bx bx-file"></i></div>
-            <h4><a href="">Sed ut perspiciatis</a></h4>
-            <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore</p>
-          </div>
-        </div>
 
-        <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-lg-0">
-          <div class="icon-box">
-            <div class="icon"><i class="bx bx-tachometer"></i></div>
-            <h4><a href="">Magni Dolores</a></h4>
-            <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia</p>
-          </div>
-        </div>
 
-        <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4">
-          <div class="icon-box">
-            <div class="icon"><i class="bx bx-world"></i></div>
-            <h4><a href="">Nemo Enim</a></h4>
-            <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis</p>
-          </div>
-        </div>
-
-        <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4">
-          <div class="icon-box">
-            <div class="icon"><i class="bx bx-slideshow"></i></div>
-            <h4><a href="">Dele cardo</a></h4>
-            <p>Quis consequatur saepe eligendi voluptatem consequatur dolor consequuntur</p>
-          </div>
-        </div>
-
-        <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4">
-          <div class="icon-box">
-            <div class="icon"><i class="bx bx-arch"></i></div>
-            <h4><a href="">Divera don</a></h4>
-            <p>Modi nostrum vel laborum. Porro fugit error sit minus sapiente sit aspernatur</p>
-          </div>
-        </div>
 
       </div>
-
     </div>
-  </section><!-- End Services Section -->
+  </section><!-- End Galery Section -->
+
 
   <!-- ======= Portfolio Section ======= -->
   <section id="portfolio" class="portfolio">
     <div class="container">
+      <div class="row">
+        <div class="col-lg-12 d-flex justify-content-center">
+        </div>
+      </div>
 
       <div class="section-title">
         <h2>Portfolio</h2>
@@ -386,9 +367,11 @@ $x = $sql->fetch(PDO::FETCH_ASSOC);
 
 
 
+
       </div>
     </div>
   </section><!-- End Portfolio Section -->
+
 
   <!-- ======= Contact Section ======= -->
   <section id="contact" class="contact">
@@ -465,7 +448,8 @@ $x = $sql->fetch(PDO::FETCH_ASSOC);
           </div>
         </div>
       </div>
-
+    
+      
 
     </div>
   </section><!-- End Contact Section -->
@@ -489,7 +473,7 @@ $x = $sql->fetch(PDO::FETCH_ASSOC);
   <script src="assets/vendor/php-email-form/validate.js"></script>
 
   <!-- Template Main JS File -->
-  <script src="assets/js/main.js"></script>
+  <script src="assets/js/main1.js"></script>
 
 </body>
 

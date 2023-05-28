@@ -58,7 +58,7 @@ if (isset($_POST['sectioncont'])) {
    $home1 = $_POST['home'] ?? 0;
    $about1 = $_POST['about'] ?? 0;
    $resume1 = $_POST['resume'] ?? 0;
-   $services1 = $_POST['services'] ?? 0;
+   $galery = $_POST['galery'] ?? 0;
    $portfolio1 = $_POST['portfolio'] ?? 0;
    $contact1 = $_POST['contact'] ?? 0;
 
@@ -66,7 +66,7 @@ if (isset($_POST['sectioncont'])) {
 home_section=:home,
 about_section=:about,
 resume_section=:resum,
-services_section=:services,
+galery_section=:galery,
 portfolio_section=:portfolio,
 contact_section=:contact
 ");
@@ -76,7 +76,7 @@ contact_section=:contact
          'home' => $home1,
          'about' => $about1,
          'resum' => $resume1,
-         'services' => $services1,
+         'galery' => $galery,
          'portfolio' => $portfolio1,
          'contact' => $contact1
       )
@@ -385,7 +385,40 @@ if (isset($_GET['action'])) {
       header("location:portfolio.php?con=no");
    }
 }
+if(isset($_POST['galerysetting'])){
+   $uploads4='dist/img';
+   $tmp_name4=$_FILES['galerypicture']['tmp_name'];
+   $name4=$_FILES['galerypicture']['name'];
+   $pic4="dist/img/$name4";
+   move_uploaded_file($tmp_name4, "$uploads4/$name4");
 
+   $galery=$db->prepare("INSERT INTO galery SET
+      galery_picture=:galpicture;
+   ");
+   $insert_gal=$galery->execute(array(
+      
+      'galpicture'=>$pic4 ));
+      if($insert_gal){
+         header("Location:galery.php?con=ok");
+      }else {
+         header("location:galery.php?con=no");
+      }
+
+}
+if(isset($_GET['pic'])){
+
+   $sql5 = "DELETE FROM `galery` WHERE `galery`.`id` = ?";
+   $del4 = $db->prepare($sql5);
+   $del4->execute([
+      $_GET['pic']
+   ]);
+
+   if ($del4) {
+      header("Location:galery.php?con=ok");
+   } else {
+      header("location:galery.php?con=no");
+   }
+}
 
 
 

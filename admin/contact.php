@@ -3,9 +3,7 @@
 
     <?php
     include 'index1.php';
-    
-   
-
+ 
     ?>
     <div class="content-wrapper">
 
