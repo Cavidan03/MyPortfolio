@@ -22,7 +22,11 @@
         return;
       }
       thisForm.querySelector('.loading').classList.add('d-block');
+<<<<<<< HEAD
       thisForm.querySelector('.sent-message').classList.remove('d-block');
+=======
+      thisForm.querySelector('.error-message').classList.remove('d-block');
+>>>>>>> 2db1f7a87884fe41f0e4deef847e12d30e8c9a2f
       thisForm.querySelector('.sent-message').classList.remove('d-block');
 
       let formData = new FormData( thisForm );
@@ -74,8 +78,13 @@
 
   function displayError(thisForm, error) {
     thisForm.querySelector('.loading').classList.remove('d-block');
+<<<<<<< HEAD
     thisForm.querySelector('.sent-message').innerHTML = error;
     thisForm.querySelector('.sent-message').classList.add('d-block');
+=======
+    thisForm.querySelector('.error-message').innerHTML = error;
+    thisForm.querySelector('.error-message').classList.add('d-block');
+>>>>>>> 2db1f7a87884fe41f0e4deef847e12d30e8c9a2f
   }
 
 })();

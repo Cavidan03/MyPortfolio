@@ -303,6 +303,7 @@ $x = $sql->fetch(PDO::FETCH_ASSOC);
 
         <?php
 
+<<<<<<< HEAD
         $galery = $db->prepare("select * from galery");
         $galery->execute([]);
         while ($g = $galery->fetch(PDO::FETCH_ASSOC)) {
@@ -319,6 +320,23 @@ $x = $sql->fetch(PDO::FETCH_ASSOC);
               </div>
             </div>
           </div>
+=======
+$galery=$db->prepare("select * from galery");
+$galery->execute([]);
+while($g=$galery->fetch(PDO::FETCH_ASSOC)){
+
+        ?>
+        <div class="col-lg-4 col-md-6 galery-item filter-app">
+          <div class="galery-wrap">
+            <img src="../admin/<?=$g['galery_picture']?>" class="img-fluid" alt="">
+            <div class="galery-info">
+              <div class="galery-links">
+                <a href="../admin/<?=$g['galery_picture']?>" data-gallery="portfolioGallery" class="portfolio-lightbox"><i class="bx bx-plus"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+>>>>>>> 2db1f7a87884fe41f0e4deef847e12d30e8c9a2f
         <?php } ?>
 
 
@@ -449,6 +467,7 @@ $x = $sql->fetch(PDO::FETCH_ASSOC);
           </div>
         </div>
       </div>
+<<<<<<< HEAD
 
       <form action="" method="post" role="form" class="php-email-form mt-4">
         <div class="row">
@@ -515,6 +534,10 @@ $x = $sql->fetch(PDO::FETCH_ASSOC);
       ?>
 
 
+=======
+    
+      
+>>>>>>> 2db1f7a87884fe41f0e4deef847e12d30e8c9a2f
 
     </div>
   </section><!-- End Contact Section -->
@@ -535,6 +558,10 @@ $x = $sql->fetch(PDO::FETCH_ASSOC);
   <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
   <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
   <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
+<<<<<<< HEAD
+=======
+  <script src="assets/vendor/php-email-form/validate.js"></script>
+>>>>>>> 2db1f7a87884fe41f0e4deef847e12d30e8c9a2f
 
   <!-- Template Main JS File -->
   <script src="assets/js/main1.js"></script>
